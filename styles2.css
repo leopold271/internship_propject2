@@ -1,0 +1,220 @@
+body{
+    font-size: 16px;
+    background-color: honeydew;
+}
+
+.loginFormContainer{
+    border: 2px solid black;
+    width: 380px;
+    border-radius:12px;
+    right: 15px;
+    top: 65px;
+    position: fixed;
+}
+
+.loginFormContainer p{
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.loginForm{
+    padding-left: 30px;
+}
+
+.loginForm input{
+    padding: 7px;
+    width: 300px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.loginForm input:hover{
+    background-color: rgba(0, 128, 0, 0.103);
+    border: 2px solid rgba(0, 128, 0, 0.705);
+}
+
+.loginForm input:focus{
+    background-color: rgba(0, 128, 0, 0.308);
+    border: 3px solid rgba(0, 128, 0, 0.999);
+}
+
+input[type="submit"] {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    width: 70px;
+    background-color: lightgreen;
+    box-shadow: 2px 2px 6px green;
+}
+
+.info{
+    border: 2px solid black;
+    width: 330px;
+    padding: 20px 10px;
+}
+
+div.info>div{
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.info input{
+    border-radius: 5px;
+}
+
+.info input[type="submit"] {
+    padding: 7px;
+    width: 60px;
+}
+
+.info input[type="reset"] {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    width: 60px;
+    padding: 7px;
+    background-color: rgba(255, 0, 0, 0.103);
+    box-shadow: 2px 2px 6px red;
+}
+
+.info input:hover {
+    background-color: rgba(0, 128, 0, 0.103);
+    border: 2px solid rgba(0, 128, 0, 0.705);
+}
+
+.info input:focus{  
+    background-color: rgba(0, 128, 0, 0.308);
+    border: 3px solid rgba(0, 128, 0, 0.999);
+}
+
+.infoName form>input{
+    margin-bottom: 8px;
+}
+
+div.info>div{
+    margin-top: 8px;
+}
+
+.text {
+    border: 1px solid black;
+    width: 900px;
+    margin: 30px  auto; 
+}
+
+.text p{
+    background-image: url("download.jpg");
+    overflow-y: scroll;
+    font-weight: bold;
+    height: 380px;
+    margin: 0;
+    font-family: Luminari, fantasy;
+    font-weight: normal;
+    padding: 10px;
+    text-align: left;
+}
+
+.capitalize{
+    text-transform: capitalize;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: red;
+}
+
+.questionImg{
+    width: 40px;
+    height: 40px;
+}
+
+.textareaForm input{
+    padding: 7px;
+    width: 60px;
+    border-radius: 5px;
+}
+
+.hyperlink{
+    margin-top: 10px;
+}
+
+.hyperlink a:link, .hyperlink a:visited{
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgba(171, 145, 218, 0.137);
+    padding: 12px 20px;
+    color: black;
+    text-align: center;
+    border: 2px solid rgb(13, 80, 65);
+} 
+
+.hyperlink a:hover{
+    box-shadow: 2px 2px 6px black ;
+}
+
+.hyperlink a:active{
+    background-color: cadetblue;
+}
+
+table, td, th{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.table{
+    width: 250px;
+    height: 150px;
+    margin-top: 20px;
+   
+}
+
+th {
+    background-color: coral;
+    text-align: center;
+    padding: 4px;
+}
+
+td{
+    background-color: rgba(255, 127, 80, 0.26);
+    text-align: center;
+    padding: 4px;
+}
+
+
+.list{
+    width: 650px;
+}
+
+ul{
+    list-style-type: square;
+    background-color: rgba(100, 148, 237, 0.315);
+}
+
+ul li:nth-child(even){
+    background-color: rgba(128, 128, 128, 0.158);
+}
+
+ul li:nth-child(odd){
+    background-color: rgba(128, 128, 128, 0.384);
+}
+
+.sendBtn button{
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 128, 0, 0.514);
+    text-align: center;
+    cursor: pointer;
+}
+
+.sendBtn button:hover{
+    box-shadow: 2px 2px 6px black;
+}
+
+
+
+
+
+
+
+
