@@ -1,49 +1,44 @@
 body{
-    display: grid;
-    grid-template-areas: 
-    "login login info"
-    "squares text info";
-    grid-template-rows: 30vh 63vh;
-    grid-template-columns: 100px 2fr 1fr;
-    grid-gap: 10px;
     font-size: 16px;
     background-color: honeydew;
-    border: 1px solid black;
-    padding: 10px;
-    transition: font-size 2s ease-in-out;
+}
+
+.tableLayout{
+    border-spacing: 10px;
+    border-collapse: separate;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.loginFormTableCell{
+    width: 66vw;
+}
+
+.infoTableCell{
+    width: 33vw;
+}
+
+.squaresFormTableCell{
+    width: 100px;
+    
 }
 
 .square1,
 .square2,
 .square3{
-    border: 1px solid black;
-    height: auto;
-    width: 100px;
-    box-sizing: border-box;
+    border: 1px solid #000;
 }
 
-.loginFormContainer{
-    grid-area: login;
-}
-
-.info{
-    grid-area: info;
-}
-
-.squares{
-    grid-area: squares;
-    display: grid;
-    grid-template-rows: auto auto auto;
-    grid-gap: 40px;
-}
-
-.text{
-    grid-area: text;   
+.square1,
+.square2{
+    margin-bottom: 40px;   
 }
 
 .loginFormContainer{
     border: 2px solid black;
-    border-radius: 12px;
+    border-radius:12px;
 }
 
 .loginFormContainer p{
@@ -58,9 +53,7 @@ body{
 }
 
 .loginForm input{
-    transition: all 2s ease-in-out;
-    transition-property: padding, width;
-    padding: 10px;
+    padding: 7px;
     width: 300px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -77,13 +70,10 @@ body{
 }
 
 input[type="submit"] {
-    transition: all 2s ease-in-out;
-    transition-property: padding, width;
     font-family: Arial;
     font-weight: bold;
     font-size: 12px;
     width: 70px;
-    padding: 10px;
     background-color: lightgreen;
     box-shadow: 2px 2px 6px green;
 }
@@ -91,6 +81,8 @@ input[type="submit"] {
 .info{
     border: 2px solid black;
     padding: 20px 10px;
+    position: relative;
+    height: 91vh;
 }
 
 div.info>div{
@@ -102,28 +94,17 @@ div.info>div{
     border-radius: 5px;
 }
 
-.info input[type="text"]{
-    transition-property: padding, width;
-    transition: all 2s ease-in-out;
-    padding: 10px;
-    width: 200px;
-}
-
 .info input[type="submit"] {
-    transition: all 2s ease-in-out;
-    transition-property: padding, width;
-    padding: 10px;
-    width: 70px;
+    padding: 7px;
+    width: 60px;
 }
 
 .info input[type="reset"] {
-    transition: all 2s ease-in-out;
-    transition-property: padding, width;
     font-family: Arial;
     font-weight: bold;
     font-size: 12px;
-    width: 70px;
-    padding: 10px;
+    width: 60px;
+    padding: 7px;
     background-color: rgba(255, 0, 0, 0.103);
     box-shadow: 2px 2px 6px red;
 }
@@ -148,6 +129,7 @@ div.info>div{
 
 .text {
     border: 1px solid black;
+    margin: 30px  auto;  
 }
 
 .text p{
@@ -169,7 +151,6 @@ div.info>div{
 }
 
 .questionImg{
-    transition: width 2s ease-in-out, height 2s ease-in-out;
     width: 40px;
     height: 40px;
 }
@@ -188,7 +169,7 @@ div.info>div{
     text-decoration: none;
     display: inline-block;
     background-color: rgba(171, 145, 218, 0.137);
-    padding: 10px 15px;
+    padding: 9px 15px;
     color: black;
     text-align: center;
     border: 2px solid rgb(13, 80, 65);
@@ -208,7 +189,7 @@ table, td, th{
 }
 
 .table{
-    margin-top: 20px; 
+    margin-top: 20px;  
 }
 
 th {
@@ -222,6 +203,7 @@ td{
     text-align: center;
     padding: 4px;
 }
+
 
 ul{
     list-style-type: square;
@@ -237,10 +219,8 @@ ul li:nth-child(odd){
 }
 
 .sendBtn button{
-    transition-property: font-size, padding;
-    transition: all 2s ease-in-out;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px 20px;
     background-color: rgba(0, 128, 0, 0.514);
     text-align: center;
@@ -251,68 +231,10 @@ ul li:nth-child(odd){
     box-shadow: 2px 2px 6px black;
 }
 
-@media all and (max-width: 1280px) {
-    body{
-        display: grid;
-      grid-template-areas: 
-      "info"
-      "login"
-      "squares"
-      "text";
-      grid-template-columns: 1fr;
-      grid-template-rows: 490px 1fr 200px 2fr;
-      font-size: 12px;
-    }
 
-    .squares{
-        grid-area: squares;
-        display: grid;
-        grid-template-columns: auto auto auto;
-    }
 
-    .square1,
-    .square2,
-    .square3{
-        width: 100px;
-    }
 
-    .info{
-        position: sticky;
-        top: 10px;
-    }
 
-    .questionImg{
-        width: 20px;
-        height: 20px;
-    }
 
-    .loginForm input{
-        width: 500px;
-        padding: 6px;
-    }
 
-    input[type="submit"]{
-        width: 90px;
-        padding: 7px;
-    }
 
-    .info input[type="submit"]{
-        width: 90px;
-        padding: 7px;
-    }
-
-    .info input[type="reset"]{
-        width: 90px;
-        padding: 7px;
-    }
-
-    .info input[type="text"]{
-    width: 250px;
-    padding: 7px;
-    }
-    
-    .sendBtn button{
-        font-size: 20px;
-        padding: 7px 15px;
-    }
-}
