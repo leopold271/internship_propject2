@@ -190,97 +190,10 @@
                 </ul>
             </div>
             <div class="sendBtn">
-                <button type="button" onclick="alert('sent successfully')">Send</button>
+                <button  type="button">Send</button>
             </div>
         </div>
     </div>
-
-    <script>
-        //- изменение контента определенного элемента
-        let listElemnets = document.querySelectorAll('.list ul li');
-
-        for (let elem of listElemnets) {
-            elem.innerHTML = 'Hello';
-        }
-
-        //- добавление обработчиков на:
-
-        //б) клик
-        // + -предотвращение работы события
-        let submitLoginFormButton = document.getElementById('submitLoginForm');
-        submitLoginFormButton.addEventListener("click", () => {
-            let email = document.getElementById('email').value;
-            let password = document.getElementById('password').value;
-            if (!email.includes('@mail.com') || !email.includes('@gmail.com')) {
-                return false;
-            }
-            let message = 'your email: ' + email + `\n` + 'your password: ' + password
-            alert(message);
-        });
-
-
-        //а) наведение мыши,
-        //в) снятие курсора мыши с элемента
-        let hyperlink = document.getElementById('hyperlink');
-        hyperlink.addEventListener('mouseover', () => {
-            alert('are you sure?');
-        });
-        hyperlink.addEventListener('mouseout', () => {
-            alert('come back when you are sure');
-        });
-
-
-        //г) фокус инпута
-        let emailInput = document.getElementById('email');
-        let passworInput = document.getElementById('password');
-
-        emailInput.addEventListener('blur', () => {
-            if (!emailInput.value.includes('@')) {
-                emailInput.classList.add('invalid');
-            } else {
-                emailInput.classList.remove('invalid');
-                emailInput.classList.add('valid');
-            }
-        });
-
-        passworInput.addEventListener('blur', () => {
-            if (passworInput.value.length < 8) {
-                passworInput.classList.add('invalid');
-            } else {
-                passworInput.classList.remove('invalid');
-                passworInput.classList.add('valid');
-            }
-        });
-
-
-        //д) изменение контента элемента
-        let nameInput = document.getElementById('name');
-        let surnameInput = document.getElementById('surname');
-
-        nameInput.addEventListener('blur', () => {
-            let name = nameInput.value;
-            let div = document.createElement('div');
-            div.innerHTML = `${name}`;
-            nameOnBottom.prepend(div);
-        });
-
-        surnameInput.addEventListener('blur', () => {
-            let surname = surnameInput.value;
-            let div = document.createElement('div');
-            div.innerHTML = `${surname}`;
-            surnameOnBottom.prepend(div);
-        });
-
-
-        //- предотвращение работы события
-        linkToGoogle.addEventListener('click', (event) => {
-            event.preventDefault();
-            alert(event.target.getAttribute('href'));
-        })
-
-
-
-    </script>
     <script src="./script.js"></script>
 </body>
 
