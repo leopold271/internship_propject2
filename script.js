@@ -205,6 +205,79 @@ let person = {
 let {name, surname, age, gender} = person;
 console.log(surname);
 
+// it 6
+
+
+//- получение текущего URL
+let URL = location.href;
+console.log(URL);
+
+
+//- получение, навигация и изменение истории переходов страницы/окна (BOM)
+console.log(history);
+
+function goBack () {
+    history.back();
+}
+
+function goForwoard() {
+    history.forward();
+}
+
+function goTo(num) {
+    history.go(num);
+}
+
+history.pushState(null, 'someTitle');
+history.replaceState(null, 'someTitle2');
+
+// вывод alert
+
+//alert('вывод alert');
+
+
+//- сохранение Cookie и перезапись с параметрами
+
+function createCookies(name, surname) {
+    document.cookie = `name=${name}`;
+    document.cookie = `surname=${surname}`;
+}
+
+let createCookiesBtn = document.getElementById('createCookies');
+createCookiesBtn.addEventListener('click', () => {
+    let name = prompt('your name?');
+    let surname = prompt('your suraname?');
+    createCookies(name, surname);
+});
+console.log(document.cookie);
+
+
+//- сохранение данных в Local Storage, Session Storage и получение данных из них
+
+let calcBtn = document.getElementById('calcBtn');
+
+calcBtn.addEventListener('click', () => {
+    let a = document.getElementById('1stNumber');
+    let b = document.getElementById('2ndNumber');
+    let result = document.getElementById('result');   
+    sessionStorage.setItem('a', a.value);
+    sessionStorage.setItem('b', b.value);
+    sessionStorage.setItem('result', result.value);
+})
+console.log(sessionStorage);
+
+let submmitFullNameBtn = document.getElementById('submmitFullName');
+
+submmitFullName.addEventListener('click', () => {
+    let name = document.getElementById('name').value;
+    let surname = document.getElementById('surname').value;
+    localStorage.setItem('name', name);
+    localStorage.setItem('surname', surname);
+})
+
+console.log(localStorage);
+
+
 
 
 

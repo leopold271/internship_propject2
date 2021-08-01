@@ -236,18 +236,19 @@ ul li:nth-child(odd){
     background-color: rgba(128, 128, 128, 0.384);
 }
 
-.sendBtn button{
+.createCookies button{
     transition-property: font-size, padding;
     transition: all 2s ease-in-out;
     display: inline-block;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 6px 10px;
     background-color: rgba(0, 128, 0, 0.514);
     text-align: center;
     cursor: pointer;
+    font-size: 14px;
 }
 
-.sendBtn button:hover{
+.createCookies button:hover{
     box-shadow: 2px 2px 6px black;
 }
 
@@ -363,7 +364,7 @@ ul li:nth-child(odd){
     padding: 7px;
     }
     
-    .sendBtn button{
+    .createCookies button{
         font-size: 20px;
         padding: 7px 15px;
     }
