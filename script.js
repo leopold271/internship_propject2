@@ -21,22 +21,22 @@ textarea.addEventListener('blur', () => {
 //- вывод в консоль
 //- логические операции
 // -шаблонизация
-let outerDiv = document.getElementById('outerDiv');
+// let outerDiv = document.getElementById('outerDiv');
 
-outerDiv.addEventListener('click', (event) => {
-    switch (event.target) {
-        case outerDiv:
-            console.log(`you clicked on div with class ${event.target.className}`);
-            break;
-        case document.getElementById('middleDiv'):
-            console.log(`you clicked on div with class ${event.target.className}`);
-            break;
-        case document.getElementById('innerDiv'):
-            console.log(`you clicked on div with class ${event.target.className}`);
-            break;
-        default: console.log('error');
-    }
-})
+// outerDiv.addEventListener('click', (event) => {
+//     switch (event.target) {
+//         case outerDiv:
+//             console.log(`you clicked on div with class ${event.target.className}`);
+//             break;
+//         case document.getElementById('middleDiv'):
+//             console.log(`you clicked on div with class ${event.target.className}`);
+//             break;
+//         case document.getElementById('innerDiv'):
+//             console.log(`you clicked on div with class ${event.target.className}`);
+//             break;
+//         default: console.log('error');
+//     }
+// })
 
 
 //- обработка ошибок – try/catch
@@ -147,7 +147,7 @@ class Animal {
     }
 }
 
-class Cat extends Animal{
+class Cat extends Animal {
     constructor(options) {
         super(options);
         this.color = options.color;
@@ -170,7 +170,7 @@ let cat1 = new Cat({
 //- Spread/Rest operator
 function sum(...args) {
     let sum = 0
-    for(let arg of args){
+    for (let arg of args) {
         sum += arg;
     }
     console.log(sum);
@@ -186,8 +186,8 @@ console.log(Math.max(...arr));
 //- yield
 //- Default parameter
 
-function* numberGenerator(n = 15){
-    for(let i = 0; i < n; i++) {
+function* numberGenerator(n = 15) {
+    for (let i = 0; i < n; i++) {
         yield i;
     }
 }
@@ -202,7 +202,7 @@ let person = {
     gender: 'male'
 }
 
-let {name, surname, age, gender} = person;
+let { name, surname, age, gender } = person;
 console.log(surname);
 
 // it 6
@@ -216,7 +216,7 @@ console.log(URL);
 //- получение, навигация и изменение истории переходов страницы/окна (BOM)
 console.log(history);
 
-function goBack () {
+function goBack() {
     history.back();
 }
 
@@ -259,7 +259,7 @@ let calcBtn = document.getElementById('calcBtn');
 calcBtn.addEventListener('click', () => {
     let a = document.getElementById('1stNumber');
     let b = document.getElementById('2ndNumber');
-    let result = document.getElementById('result');   
+    let result = document.getElementById('result');
     sessionStorage.setItem('a', a.value);
     sessionStorage.setItem('b', b.value);
     sessionStorage.setItem('result', result.value);
@@ -277,6 +277,62 @@ submmitFullName.addEventListener('click', () => {
 
 console.log(localStorage);
 
+
+// it7
+function getAndSetUser(name) {
+
+    fetch(`https://api.github.com/users/${name}`, { method: 'GET' })
+        .then((response) => {
+           return repo = response.json();
+        })
+        .then((repo) => {
+            let {login, id, followers} = repo;
+            let div = document.createElement('div');
+            div.innerHTML = `login: ${login}<br>id: ${id}<br>followers number: ${followers}`;
+            let wrapper = document.getElementById('userInfoWrapper');
+            wrapper.prepend(div);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+              
+}
+
+getAndSetUser('leopold271');
+
+// function insertUserInfo (funcGetUser) {
+//     let user = funcGetUser('leopold271');
+//     let {login, id, followers} = user;
+//     let div = document.createElement('div');
+//     div.innerHTML = `login: ${login}<br>id: ${id}<br>followers number: ${followers}`;
+//     let wrapper = document.getElementById('userInfoWrapper');
+//     wrapper.prepend(div);
+// }
+
+// insertUserInfo(getUser)
+
+async function getUser(name) {
+    try {
+        let response = await fetch(`https://api.github.com/users/${name}`, { method: 'GET' })
+        if (response.status == 200) {
+            let repo = await response.json();
+            return repo;
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+async function insertUserInfo2 (funcGetUser) {
+    let user = await funcGetUser('leopold271');
+    let {login, id, followers} = user;
+    let div = document.createElement('div');
+    div.innerHTML = `login: ${login}<br>id: ${id}<br>followers number: ${followers}`;
+    let wrapper = document.getElementById('userInfoWrapper');
+    wrapper.prepend(div);
+}
+
+// insertUserInfo2(getUser);
 
 
 
