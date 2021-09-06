@@ -1,79 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import classes from './loginForm.module.css';
 
-class LoginForm extends React.Component {
+const LoginForm = (props) => {
 
-    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [emailIsValid, setEmailIsValid] = useState(true);
+    const [passwordIsValid, setPaswwordIsValid] = useState(true);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            EmailIsValid: true,
-            PasswordISValid: true,
-            email: '',
-            password: ''
-        }
-        
-        this.handleEmailBlur = this.handleEmailBlur.bind(this);
-        this.handlePasswordBlur = this.handlePasswordBlur.bind(this);
-        this.emailOnChange = this.emailOnChange.bind(this);
-        this.passwordOnChange = this.passwordOnChange.bind(this);
-    };
-    
-    emailOnChange(event) {
-        this.setState({
-            email: event.target.value
-        })
+    const setEmailValue = (e) => {
+        setEmail(e.target.value)
     }
 
-    passwordOnChange(event) {
-        this.setState({
-            password: event.target.value
-        })
-    } 
-
-    handleEmailBlur() {
-       if(!this.state.email.includes('@')) {
-           this.setState({
-               EmailIsValid: false
-           })
-       } else {
-        this.setState({
-            EmailIsValid: true
-        }) 
-       }
+    const setPasswordValue = (e) => {
+        setPassword(e.target.value)
     }
 
-    handlePasswordBlur() {
-        if(this.state.password.length < 8) {
-            this.setState({
-                PasswordISValid: false
-            }) 
+    const setEmailClass = (e) => {
+        if (emailIsValid) {
+            e.target.className = 'valid'
         } else {
-            this.setState({
-                PasswordISValid: true
-            })
+            e.target.className = 'invalid'
         }
+
     }
 
-    render() {
-        return(
-            <div className="loginFormContainer">
-                <p>Enter your email and password</p>
-                <form className="loginForm">
-                    <label >Email:</label>
-                    <br />
-                    <input onChange={this.emailOnChange} value={this.state.email} onBlur={this.handleEmailBlur} className={this.state.EmailIsValid ? 'valid' : 'invalid'} type="email" />
-                    <br />
-                    <label >Password:</label>
-                    <br />
-                    <input onChange={this.passwordOnChange} value={this.state.password} onBlur={this.handlePasswordBlur} className={this.state.PasswordISValid ? 'valid' : 'invalid'} type="password" />
-                    <br />
-                    <input id="submitLoginForm" type="submit" />
-                </form>
-            </div>
-        )
+    const setPasswordClass = (e) => {
+        if (passwordIsValid) {
+            e.target.className = 'valid'
+        } else {
+            e.target.className = 'invalid'
+        }
+
     }
-    
+
+    useEffect(() => {
+        if (!email.includes('@')) {
+            setEmailIsValid(false)
+        } else {
+            setEmailIsValid(true)
+        }
+    }, [email])
+
+    useEffect(() => {
+        if (password.length < 8) {
+            setPaswwordIsValid(false)
+        } else {
+            setPaswwordIsValid(true)
+        }
+    }, [password])
+
+    return (
+        <div className={classes.loginFormContainer}>
+            <p>Enter your email and password</p>
+            <form className={classes.loginForm}>
+                <label >Email:</label>
+                <br />
+                <input onChange={setEmailValue} onBlur={setEmailClass} type="email" />
+                <br />
+                <label >Password:</label>
+                <br />
+                <input onChange={setPasswordValue} onBlur={setPasswordClass} type="password" />
+                <br />
+                <input id="submitLoginForm" type="submit" />
+            </form>
+        </div>
+    )
 }
 
 export default LoginForm;

@@ -1,106 +1,100 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RepoData from './repoData/repoData';
 import UserNameAndSurname from './userNameAndSurname/userNameAndSurname';
+import classes from './userDataForm.module.css'
 
+const useInput = (initialValue) => {
+    const [value, setValue] = useState(initialValue)
 
-class UserDataForm extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            name: '',
-            surname: '',
-        }
-
-        this.nameOnChange = this.nameOnChange.bind(this);
-        this.surnameOnchange = this.surnameOnchange.bind(this);
-        this.resetNameAndSurname = this.resetNameAndSurname.bind(this);
-
+    const onChange = (e) => {
+        setValue(e.target.value)
     }
 
-    nameOnChange(e) {
-        this.setState({
-            name: e.target.value
-        })
+    const clear = () => {
+        setValue('')
     }
 
-    surnameOnchange(e) {
-        this.setState({
-            surname: e.target.value
-        })
+    return{
+        bind: {value, onChange},
+        value,
+        clear
     }
+}
 
-    resetNameAndSurname(e) {
-        e.preventDefault();
-        this.setState({
-            name: '',
-            surname: ''
-        })
+const UserDataForm = (props) => {
+
+    const name = useInput('');
+    const surname = useInput('');
+    const handleReset = () => {       
+        name.clear();
+        surname.clear();   
     }
+    
 
+    return (
+        <div className={classes.info}>
+            <div>
+                <div className={classes.infoName}>
+                    <form>
+                        <label htmlFor="name">Your name: </label>
+                        <input type="text" id='name'{...name.bind} />
+                        <br />
+                        <label htmlFor="surname">Your surname: </label>
+                        <input type="text" id='surname' {...surname.bind} />
+                        <br />
+                        <input type="reset" onClick={handleReset}/>
+                        <input type="submit" id='submmitFullName' />
+                    </form>
+                </div>
+            </div>
 
-    render() {
-        const e = React.createElement;
-        return (
-            e('div', { className: 'info' }, [
-                e('div', { className: 'infoName' }, [
-                    e('form', null, [
-                        e('label', {htmlFor: 'name'}, 'Your name: '),
-                        e('input', { type: 'text', id: 'name', onChange: this.nameOnChange, value: this.state.name}),
-                        e('br', null),
-                        e('label', {htmlFor: 'surname'}, 'Your surname: '),
-                        e('input', { type: 'text', id: 'surname', onChange: this.surnameOnchange, value: this.state.surname}),
-                        e('br', null),
-                        e('input', { type: 'reset', onClick: this.resetNameAndSurname}),
-                        e('input', { type: 'submit', id: 'submmitFullName' })
-                    ])
-                ]),
-                e('div', { className: 'gender' }, [
-                    e('p', null, 'Select your gender'),
-                    e('form', null, [
-                        e('input', { type: 'radio', id: 'male' }),
-                        e('label', {htmlFor: 'male'}, 'Male'),
-                        e('input', { type: 'radio', id: 'female' }),
-                        e('label', {htmlFor: 'female'}, 'Female')
-                    ])
-                ]),
-                e('div', { className: 'colors' }, [
-                    e('form', null, [
-                        e('label', {htmlFor: 'colors'}, 'Choose your favorite color/s'),
-                        e('br', null),
-                        e('select', {name: 'colors', id: 'colors', size: '5', defaultValue: 'red'}, [
-                            e('option', {value: 'red'}, 'red'),
-                            e('option', {value: 'green'}, 'green'),
-                            e('option', {value: 'blue'}, 'blue'),
-                            e('option', {value: 'black'}, 'black'),
-                            e('option', {value: 'yellow'}, 'yellow'),
-                        ]),
-                        e('br', null),
-                        e('input', {type: 'submit'})
-                    ])
-                ]),
-                e('div', { className: 'vehicle' }, [
-                    e('form', null, [
-                        e('label', null, 'What type of vehicle do you prefer?'),
-                        e('br', null),
-                        e('label', null, 'Car'),
-                        e('input', {type: 'checkbox', id: 'car'}),
-                        e('br', null),
-                        e('label', null, 'Bicycle'),
-                        e('input', {type: 'checkbox', id: 'bicycle'}),
-                        e('br', null),
-                        e('label', null, 'Scooter'),
-                        e('input', {type: 'checkbox', id: 'scooter'}),
-                        e('br', null)
-                    ])
-                ]),
-                <UserNameAndSurname name={this.state.name} surname={this.state.surname}/>,
-                <RepoData/>
-            ])
+            <div className={classes.gender}>
+                <p>Select your gender</p>
+                <form>
+                    <input type="radio" id='male' />
+                    <label htmlFor="male">Male</label>
+                    <input type="radio" id='female' />
+                    <label htmlFor="female">Female</label>
+                </form>
+            </div>
 
-           
-        )
-    }
+            <div className={classes.colors}>
+                <form>
+                    <label htmlFor="colors">Choose your favorite color/s</label>
+                    <br />
+                    <select name="colors" id="colors" size='5' defaultValue='red' multiple>
+                        <option value="red">red</option>
+                        <option value="green">green</option>
+                        <option value="blue">blue</option>
+                        <option value="black">black</option>
+                        <option value="yellow">yellow</option>
+                    </select>
+                    <br />
+                    <input type="submit" />
+                </form>
+            </div>
+
+            <div className={classes.vehicle}>
+                <form>
+                    <label htmlFor="">What type of vehicle do you prefer?</label>
+                    <br />
+                    <label htmlFor="car">Car</label>
+                    <input type="checkbox" id='car' />
+                    <br />
+                    <label htmlFor="bicycle">Bicycle</label>
+                    <input type="checkbox" id='bicycle' />
+                    <br />
+                    <label htmlFor="scooter">Scooter</label>
+                    <input type="checkbox" id='scooter' />
+                    <br />
+                </form>
+            </div>
+
+            <UserNameAndSurname name={name.value} surname={surname.value} />
+            <RepoData />
+        </div>
+
+    )
 }
 
 export default UserDataForm;

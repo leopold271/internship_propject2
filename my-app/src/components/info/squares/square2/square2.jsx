@@ -1,73 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import classes from './square2.module.css';
 
-class Square2 extends React.Component {
-    constructor(props) {
-        super(props);
+const Square2 = (props) => {
 
-        this.state = {
-            a: +0,
-            b: +0,
-            result: +0
-        }
+    const [a, setA] = useState(0);
+    const [b, setB] = useState(0);
+    const [result, setResult] = useState(0);
 
-        this.aOnChange = this.aOnChange.bind(this);
-        this.bOnChange = this.bOnChange.bind(this);
-        this.handleClickCalcButton = this.handleClickCalcButton.bind(this);
-        this.handleResetClick = this.handleResetClick.bind(this);
+    useEffect(() => {
+        setResult(+a + +b)
+    }, [a, b])
 
+    const handleResetButton = () => {
+        setA(0);
+        setB(0);
+        setResult(0);
     }
-
-    aOnChange(e) {
-        this.setState({
-            a: e.target.value
-        })
-    }
-
-    bOnChange(e) {
-        this.setState({
-            b: e.target.value        
-        })
-    }
-
-    handleClickCalcButton() {
-        this.setState({
-            result: +this.state.a + +this.state.b  
-        })
-        document.getElementById('result').value = this.state.result
-    }
-
-    handleResetClick(e) {
-        e.preventDefault();
-        this.setState({
-            a: 0,
-            b: 0,
-            result: 0
-        })
-    }
-
-
-    render() {
-
-        const e = React.createElement;
-        return (
-
-            e('div', { className: 'square2' }, [
-                e('div', { className: 'calc' }, [
-                    e('form', null, [
-                        e('label', { htmlFor: '1stNumber', }, '1st number'),
-                        e('input', { type: 'text', id: '1stNumber', onChange: this.aOnChange, value: this.state.a }),
-                        e('br', null),
-                        e('label', { htmlFor: '2ndNumber' }, '2nd number'),
-                        e('input', { type: 'text', id: '2ndNumber', onChange: this.bOnChange, value: this.state.b }),
-                        e('input', { type: 'button', value: 'calc', id: 'calcBtn', onClick: this.handleClickCalcButton }),
-                        e('label', { htmlFor: 'result' }, 'result'),
-                        e('input', { type: 'text', id: 'result', value: this.state.result}),
-                        e('input', { type: 'reset', onClick: this.handleResetClick })
-                    ])
-                ])
-            ])
-        )
-    }
+    return (
+        <div className={classes.square2}>
+            <div className={classes.calc}>
+                <form>
+                    <label htmlFor="1stNumber">1st number</label>
+                    <input type="text" id='1stNumber' onChange={(e) => setA(e.target.value)} value={a} />
+                    <br />
+                    <label htmlFor="2ndNumber">2nd number</label>
+                    <input type="text" id='2ndNumber' onChange={(e) => setB(e.target.value)} value={b} /><br />
+                    <label htmlFor="result">result</label>
+                    <input type="text" id='result' value={result} />
+                    <input type="reset" onClick={handleResetButton} />
+                </form>
+            </div>
+        </div>
+    )
 }
+
+
+
 
 export default Square2;

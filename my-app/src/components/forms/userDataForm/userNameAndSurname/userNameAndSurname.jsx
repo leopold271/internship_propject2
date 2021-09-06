@@ -1,19 +1,16 @@
 import React from 'react';
 
-class UserNameAndSurname extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
 
-        const e = React.createElement;
-        return(
-            e('div', {className: 'nameAndSurname'}, [
-                e('p', null, this.props.name),
-                e('p', null, this.props.surname)
-            ])
-        )
-    }
+const UserNameAndSurname = (props) => {
+    return(
+        <div>
+            <p>{props.name}</p>
+            <p>{props.surname}</p>
+        </div>
+    )
 }
+       
+        
+
 
 export default UserNameAndSurname;

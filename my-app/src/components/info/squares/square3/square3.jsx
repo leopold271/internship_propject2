@@ -1,30 +1,24 @@
 import React from 'react';
+import classes from './square3.module.css';
 
-class Square3 extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const Square3 = (props) => {
+    return (
+        <div className={classes.square3}>
+            <div className={classes.list}>
+                <ul>
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                </ul>
+                <div id='createCookies' className={classes.createCookies}>
+                    <button type='button'>create cookies</button>
+                </div>
+            </div>
+        </div>
+    )
 
-    render() {
-
-        const e = React.createElement;
-        return (
-            e('div', { className: 'square3' }, [
-                e('div', { className: 'list' }, [
-                    e('ul', null, [
-                        e('li', null, 'Lorem'),
-                        e('li', null, 'Lorem'),
-                        e('li', null, 'Lorem'),
-                        e('li', null, 'Lorem'),
-                        e('li', null, 'Lorem'),
-                    ]),
-                    e('div', { id: 'createCookies', className: 'createCookies' }, [
-                        e('button', { type: 'button' }, 'create cookies')
-                    ])
-                ])
-            ])
-        )
-    }
 }
 
 export default Square3;
