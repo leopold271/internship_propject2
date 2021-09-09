@@ -1,41 +1,59 @@
 import React, { useEffect, useState } from 'react';
 
 
-const RepoData = (props) => {
-    const [login, setLogin] = useState('leopold271');
-    const [userName, setUserName] = useState('');
-    const [userId, setUserID] = useState('');
-    const [userFollowers, setUserFollowers] = useState('');
+class RepoData extends React.Component {
+    constructor(props) {
+        super(props);
 
-    useEffect( async () => {
+        this.state = {
+            userName: 'leopold271',
+            login: '',
+            id: '',
+            followers: ''
+        }
+    }
+
+    async componentDidMount() {
+
         try {
-            let response = await fetch(`https://api.github.com/users/${login}`, { method: 'GET' })
+            let response = await fetch(`https://api.github.com/users/${this.state.userName}`, { method: 'GET' })
             if (response.status == 200) {
                 let repo = await response.json();
                 let { login, id, followers } = await repo;
-                setUserName(login);
-                setUserID(id)
-                setUserFollowers(followers)
+                this.setState((prevState) => ({
+                    login,
+                    id,
+                    followers
+                }))
             }
         } catch (err) {
             console.log(err);
         }
-    }, [])
 
-    return (
-        <div>
+    }
+
+
+    render() {
+        return (
             <div>
-                user login: {userName}
+                <div>
+                    user login: {this.state.login}
+                </div>
+                <div>
+                    user id: {this.state.id}
+                </div>
+                <div>
+                    user followers: {this.state.followers}
+                </div>
             </div>
-            <div>
-                user id: {userId}
-            </div>
-            <div>
-                user followers: {userFollowers}
-            </div>
-        </div>
-    )
+        )
+    }
 }
+
+
+
+
+
 
 
 export default RepoData;
