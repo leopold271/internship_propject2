@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './square3.module.css';
 
-const Square3 = (props) => {
+const Square3 = () => {
     return (
         <div className={classes.square3}>
             <div className={classes.list}>

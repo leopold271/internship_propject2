@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classes from './square2.module.css';
 
-const Square2 = (props) => {
+const Square2 = () => {
 
     const [a, setA] = useState(0);
     const [b, setB] = useState(0);
@@ -21,12 +21,12 @@ const Square2 = (props) => {
             <div className={classes.calc}>
                 <form>
                     <label htmlFor="1stNumber">1st number</label>
-                    <input type="text" id='1stNumber' onChange={(e) => setA(e.target.value)} value={a} />
+                    <input type="number" id='1stNumber' onChange={(e) => setA(+e.currentTarget.value)} value={a} />
                     <br />
                     <label htmlFor="2ndNumber">2nd number</label>
-                    <input type="text" id='2ndNumber' onChange={(e) => setB(e.target.value)} value={b} /><br />
+                    <input type="number" id='2ndNumber' onChange={(e) => setB(+e.target.value)} value={b} /><br />
                     <label htmlFor="result">result</label>
-                    <input type="text" id='result' value={result} />
+                    <input type="number" id='result' value={result} />
                     <input type="reset" onClick={handleResetButton} />
                 </form>
             </div>

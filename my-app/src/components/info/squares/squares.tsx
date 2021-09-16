@@ -5,7 +5,7 @@ import Square3 from './square3/square3';
 
 
 
-const Squares = (props) => {
+const Squares = () => {
     return (
         <div className='squares'>
             <Square1 />

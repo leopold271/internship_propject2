@@ -4,7 +4,7 @@ import UserDataForm from './userDataForm/userDataForm';
 
 
 
-const Forms = (props) => {
+const Forms = () => {
     return (
         <div>
             <LoginForm />

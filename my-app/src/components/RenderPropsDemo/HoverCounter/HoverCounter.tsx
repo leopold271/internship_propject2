@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import { Interface } from 'readline';
 
-const HoverCounter = (props) => {
+interface IProps {
+    count: number,
+    setCountFunction: () => void
+}
+
+const HoverCounter = (props: IProps) => {
 
     
     return(

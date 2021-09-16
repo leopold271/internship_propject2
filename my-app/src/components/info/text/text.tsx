@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './text.module.css'
 
-const Text = (props) => {
+const Text = () => {
     return (
         <div className={classes.text}>
             <p id="text">

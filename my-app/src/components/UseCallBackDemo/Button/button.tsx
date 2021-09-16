@@ -1,6 +1,12 @@
+import { IPVersion } from 'net';
 import React, { useState } from 'react';
 
-const Button = (props) => {
+interface Iprops {
+    handleClick: () => void,
+    children: React.ReactNode
+}
+
+const Button = (props: Iprops) => {
     console.log('rendering button', props.children)
 
     return(

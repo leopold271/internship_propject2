@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-const Count = (props) => {
+interface IProps {
+    count: number,
+    text: string
+}
+
+const Count = (props: IProps) => {
     console.log(`rendering ${props.text}`)
     return(
         <div>

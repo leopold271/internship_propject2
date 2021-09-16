@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 
-class RepoData extends React.Component {
-    constructor(props) {
+class RepoData extends React.Component<{}, {userName: string, login: string, id: string, followers: string}> {
+    constructor(props: {}) {
         super(props);
 
         this.state = {

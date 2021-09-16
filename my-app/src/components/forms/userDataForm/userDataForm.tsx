@@ -3,11 +3,11 @@ import RepoData from './repoData/repoData';
 import UserNameAndSurname from './userNameAndSurname/userNameAndSurname';
 import classes from './userDataForm.module.css'
 
-const useInput = (initialValue) => {
+const useInput = (initialValue: string) => {
     const [value, setValue] = useState(initialValue)
 
-    const onChange = (e) => {
-        setValue(e.target.value)
+    const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+        setValue(e.currentTarget.value)
     }
 
     const clear = () => {
@@ -21,7 +21,7 @@ const useInput = (initialValue) => {
     }
 }
 
-const UserDataForm = (props) => {
+const UserDataForm = () => {
 
     const name = useInput('');
     const surname = useInput('');
@@ -62,7 +62,7 @@ const UserDataForm = (props) => {
                 <form>
                     <label htmlFor="colors">Choose your favorite color/s</label>
                     <br />
-                    <select name="colors" id="colors" size='5' defaultValue='red' multiple>
+                    <select name="colors" id="colors"  defaultValue='red' multiple>
                         <option value="red">red</option>
                         <option value="green">green</option>
                         <option value="blue">blue</option>

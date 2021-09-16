@@ -3,7 +3,7 @@ import Count from './Count/count';
 import Title from './Title/Title';
 import Button from './Button/button';
 
-const UseCallBackDemo = (props) => {
+const UseCallBackDemo = () => {
     const [age, setAge] = useState(20);
     const [weight, setWeight] = useState(60);
 

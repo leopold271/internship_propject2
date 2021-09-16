@@ -1,35 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import classes from './loginForm.module.css';
 
-const LoginForm = (props) => {
+const LoginForm = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailIsValid, setEmailIsValid] = useState(true);
     const [passwordIsValid, setPaswwordIsValid] = useState(true);
 
-    const setEmailValue = (e) => {
-        setEmail(e.target.value)
+    const setEmailValue = (e: React.FormEvent<HTMLInputElement>) => {
+        setEmail(e.currentTarget.value)
     }
 
-    const setPasswordValue = (e) => {
-        setPassword(e.target.value)
+    const setPasswordValue = (e: React.FormEvent<HTMLInputElement>) => {
+        setPassword(e.currentTarget.value)
     }
 
-    const setEmailClass = (e) => {
+    const setEmailClass = (e: React.FormEvent<HTMLInputElement>) => {
         if (emailIsValid) {
-            e.target.className = 'valid'
+            e.currentTarget.className = 'valid'
         } else {
-            e.target.className = 'invalid'
+            e.currentTarget.className = 'invalid'
         }
 
     }
 
-    const setPasswordClass = (e) => {
+    const setPasswordClass = (e: React.FormEvent<HTMLInputElement>) => {
         if (passwordIsValid) {
-            e.target.className = 'valid'
+            e.currentTarget.className = 'valid'
         } else {
-            e.target.className = 'invalid'
+            e.currentTarget.className = 'invalid'
         }
 
     }

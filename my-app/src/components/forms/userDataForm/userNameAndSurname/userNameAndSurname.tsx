@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const UserNameAndSurname = (props) => {
+const UserNameAndSurname = (props: {name: string, surname: string}) => {
     return(
         <div>
             <p>{props.name}</p>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-const ClickCounter = (props) => {
+interface IProps {
+    count: number,
+    setCountFunction: () => void
+}
 
-   
-
+const ClickCounter = (props: IProps) => {
     return(
         <div>
             <button onClick={props.setCountFunction}>Clicked {props.count} times</button>

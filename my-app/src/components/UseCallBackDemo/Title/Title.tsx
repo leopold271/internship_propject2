@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Title = (props) => {
+const Title = () => {
     console.log('rendering title')
     return(
         <h2>
