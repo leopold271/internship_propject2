@@ -1,6 +1,5 @@
 
 import './App.css'
-import React, { useCallback } from 'react';
 import Forms from './components/forms/forms';
 import Info from './components/info/info'
 import {
@@ -10,11 +9,9 @@ import {
 import Navbar from './components/navbar/navbar';
 import UseCallBackDemo from './components/UseCallBackDemo/UseCallBackDemo';
 import RenderPropsDemo from './components/RenderPropsDemo/RenderPropsDemo';
+import Counter from './components/counterReduxDemo/Counter';
 
-
-
-
-const App = (props) => {
+const App = () => {
     return (
         <Router>
             <Route path='/forms'>
@@ -28,6 +25,9 @@ const App = (props) => {
             </Route>
             <Route path='/renderPropsDemo'>
                 <RenderPropsDemo />
+            </Route>
+            <Route path='/counterReduxDemo'>
+                <Counter />
             </Route>
             <Navbar />
         </Router>
