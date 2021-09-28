@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 
-interface IProps {
-    count: number,
-    text: string
-}
-
-const Count = (props: IProps) => {
+const Count = (props) => {
     console.log(`rendering ${props.text}`)
     return(
         <div>
@@ -14,4 +9,4 @@ const Count = (props: IProps) => {
     )
 }
 
-export default React.memo(Count)  ;
+export default React.memo(Count);

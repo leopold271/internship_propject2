@@ -7,7 +7,7 @@
     grid-template-columns: 100px 2fr 1fr;
     grid-gap: 10px;
     font-size: 16px;
-    background-color: honeydew;
+    background-color: rgb(68, 73, 68);
     border: 1px solid rgb(85, 75, 75);
     padding: 10px;
     transition: font-size 2s ease-in-out;
