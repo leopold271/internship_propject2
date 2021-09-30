@@ -11,19 +11,20 @@ import UseCallBackDemo from './components/UseCallBackDemo/UseCallBackDemo';
 import RenderPropsDemo from './components/RenderPropsDemo/RenderPropsDemo';
 import Counter from './components/counterReduxDemo/Counter';
 import ThemeTogglerButton from './components/ThemeTogglerButton/ThemeTogglerButton';
-import { useContext } from 'react';
-import { themes, ThemesContext } from './context';
+import { themes, ThemeContext } from './context';
+import { useState } from 'react';
 
 const App = () => {
 
-    const themes = useContext(ThemesContext)
-
-    
+    const [theme, toggleTheme] = useState(themes.light);
+    const toggle = () => {
+      toggleTheme(theme === themes.dark ? themes.light : themes.dark);
+    };
 
 
     return (  
         
-        <div >
+        <div style={{backgroundColor: theme.background}} >
             <Router>
                 <Route path='/forms'>
                     <Forms />
@@ -41,7 +42,9 @@ const App = () => {
                     <Counter />
                 </Route>
                 <Navbar />
+                <ThemeContext.Provider value={{ theme, toggle }}>
                 <ThemeTogglerButton/>
+                </ThemeContext.Provider>
             </Router>
 
             </div>

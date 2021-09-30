@@ -1,14 +1,17 @@
-import { useContext, useState } from "react";
-import { ThemesContext } from "../../context";
+
+import { ThemeContext } from "../../context";
 
 
 const ThemeTogglerButton = () => {
-
-    const {theme, toggleTheme} = useContext(ThemesContext)
-
     return (
-        <button onClick={toggleTheme}>toggle theme</button>
-    )
-}
-
-export default ThemeTogglerButton;
+      <ThemeContext.Consumer>
+        {({ toggle }) => (
+          <button onClick={toggle}>
+            Toggle Theme
+          </button>
+        )}
+      </ThemeContext.Consumer>
+    );
+  }
+  
+  export default ThemeTogglerButton;

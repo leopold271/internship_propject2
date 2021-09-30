@@ -10,11 +10,9 @@ import { themes, ThemesContext } from './context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemesContext.Provider value={themes}>
-    <Provider store={store}>      
-        <App />
+    <Provider store={store}>
+      <App />
     </Provider>
-    </ThemesContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
