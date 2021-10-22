@@ -1,11 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './components/counterReduxDemo/CounterSlice';
-import calculationReducer from './components/info/squares/square2/square2Slice'
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { counterReducer } from './components/counterReduxDemo/CounterReducer';
+import { square2Reducer } from './components/info/squares/square2/square2Reducer';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { repoDataReducer } from './components/forms/userDataForm/repoData/repoDataReducer'
+import thunkMiddleware from 'redux-thunk';
 
-
-export default configureStore({
-    reducer: {
-        counter: counterReducer,
-        calculations: calculationReducer
-    }
+const rootReducer = combineReducers({
+    counter: counterReducer,
+    calculations: square2Reducer,
+    repoData: repoDataReducer
 })
+
+const coposedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
+let store = createStore(rootReducer, coposedEnhancer);
+
+export default store;

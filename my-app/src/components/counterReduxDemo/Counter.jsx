@@ -1,19 +1,32 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {decrement, increment} from './CounterSlice'
+import { connect } from "react-redux";
 
 
-const Counter = () => {
-    const value = useSelector(state => state.counter.value);
-    const dispatch = useDispatch();
+const mapStateToProps = state => {
+    return {
+        value: state
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleIncrement: () => dispatch({ type: 'increment' }),
+        handleDecrement: () => dispatch({ type: 'decrement' })
+    }
+}
+
+const Counter = ({ value, handleDecrement, handleIncrement }) => {
     return (
         <div>
             <h1>{value}</h1>
-            <button onClick={() => dispatch(increment())} > + </button>
-            <button onClick={() => dispatch(decrement())} > - </button>
+            <button onClick={handleIncrement} > + </button>
+            <button onClick={handleDecrement} > - </button>
         </div>
-        
+
     )
 }
 
-export default Counter;
+const CounterContainer = connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+export default CounterContainer;

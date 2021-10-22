@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store'
 import { themes, ThemesContext } from './context';
+import { fetchRepoData } from './components/forms/userDataForm/repoData/repoDataReducer'
+
+store.dispatch(fetchRepoData);
 
 
 ReactDOM.render(

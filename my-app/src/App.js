@@ -9,7 +9,7 @@ import {
 import Navbar from './components/navbar/navbar';
 import UseCallBackDemo from './components/UseCallBackDemo/UseCallBackDemo';
 import RenderPropsDemo from './components/RenderPropsDemo/RenderPropsDemo';
-import Counter from './components/counterReduxDemo/Counter';
+import CounterContainer from './components/counterReduxDemo/Counter';
 import ThemeTogglerButton from './components/ThemeTogglerButton/ThemeTogglerButton';
 import { themes, ThemeContext } from './context';
 import { useState } from 'react';
@@ -39,7 +39,7 @@ const App = () => {
                     <RenderPropsDemo />
                 </Route>
                 <Route path='/counterReduxDemo'>
-                    <Counter />
+                    <CounterContainer />
                 </Route>
                 <Navbar />
                 <ThemeContext.Provider value={{ theme, toggle }}>
@@ -51,8 +51,6 @@ const App = () => {
     )
 }
 
-
-
-
+ 
 
 export default App;

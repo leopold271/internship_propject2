@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classes from './square2.module.css';
-import { setA, setB, calculateResult, reset } from './square2Slice'
+import { setA, setB, setResult, reset } from './square2Reducer'
+
 
 const Square2 = () => {
 
@@ -10,6 +10,11 @@ const Square2 = () => {
     const a = useSelector(state => state.calculations.a);
     const b = useSelector(state => state.calculations.b);
     const result = useSelector(state => state.calculations.result);
+
+    const handleCalc = (e) => {
+        e.preventDefault();
+        dispatch(setResult())
+    }
 
     return (
         <div className={classes.square2}>
@@ -22,7 +27,7 @@ const Square2 = () => {
                     <input type="number" id='2ndNumber' value={b} onChange={(e) => dispatch(setB(+e.target.value))} /><br />
                     <label htmlFor="result">result</label>
                     <input type="number" id='result' value={result} />
-                    <button onClick={() => dispatch(calculateResult())} >calc</button>
+                    <button onClick={handleCalc} >calc</button>
                     <input type="reset" onClick={() => dispatch(reset())} />
                 </form>
             </div>
